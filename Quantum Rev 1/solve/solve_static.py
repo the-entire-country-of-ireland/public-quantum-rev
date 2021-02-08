@@ -34,7 +34,7 @@ addition_circuit = addition_circuit[:j]
 len_addition_circuit = addition_circuit.count("\n")
 
 """
-note that all the additions and registers and whatnot are 256-bit integers.
+note that all the additions and registers and whatnot are 64-bit integers.
 and 384 / 64 = 6, 320 / 64  = 5,
 so this is adding-in-place registers 5 and 6
 """
@@ -78,7 +78,7 @@ prog = prog.replace(addition_circuit, "add #5, #3\n")
 
 # coalesce the ccx
 
-s = "ccx q[449],q[192],q[256];\n"
+s = "ccx q[449],q[192],q[64];\n"
 i = prog.index(s)
 negation_circuit = prog[i:]
 
@@ -92,7 +92,7 @@ prog = prog.replace(negation_circuit, "ccx q[449], #3, #4\n")
 
 # extract the 3rd addition subroutine
 
-s = "cx q[256],q[320];\n"
+s = "cx q[64],q[320];\n"
 i = prog.index(s)
 addition_circuit = prog[i:]
 
