@@ -83,7 +83,12 @@ Once `N` has been recovered, you can factor it in sage in under a minute. Using 
 
 ##  dynamic analysis solution
 
-The circuit_part files only use SWAP, NOT, CNOT, and CCNOT gates, which are all classical gates, so you can emulate the circuit. At the very start of each file, it loads in `a, a^2, a^4, a^8, ...`, so pausing the emulation after the first values have been loaded will reveal
+The circuit_part files only use SWAP, NOT, CNOT, and CCNOT gates, which are all classical gates, so you can emulate the circuit. At the very start of each file, it loads in `a, a^2, a^4, a^8, ...`, so pausing the emulation after the first values have been loaded will reveal the modular powers of `a`.
+
+We know that `a^2 - (a^2 mod N)` is a multiple of `N`, so you can recover (a small multiple of) `N` via:
+```
+gcd( a^2 - (a^2 mod N), a^4 - (a^4 mod N) )
+```
 
 Unfortunately, as `N` is not loaded during the circuit (it is expected to be provided in classical memory and then copied over to quantum memory during the initialization routine), the entire circuit cannot be correctly emulated.
 
