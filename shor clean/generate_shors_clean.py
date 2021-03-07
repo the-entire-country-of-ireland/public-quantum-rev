@@ -475,7 +475,7 @@ plt.plot(measurement_probabilities)
 plt.xlabel("QFT^-1 {exponent}")
 plt.ylabel("probability")
 plt.title(f"Shor's Algorithm Measurement Probabilities\nN={N}, a={a}, ne={ne}")
-plt.savefig(f"output_distribution_N={N},a={a},ne={ne}.png")
+plt.savefig(f"output_distribution_N={N},a={a},ne={ne}.png", dpi=300)
 plt.show()
 
 
