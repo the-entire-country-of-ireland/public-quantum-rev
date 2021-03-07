@@ -46,6 +46,7 @@ mcphase(15*pi/8) q[128],q[0],q[196];
 mcphase(7*pi/4) q[128],q[0],q[195];
 mcphase(3*pi/2) q[128],q[0],q[194];
 mcphase(pi) q[128],q[0],q[193];
+
 ```
 
 The appearance of `pi` on the final angles indicates that you should convert divide each floating point number by (2 * pi), which will then give a fraction where the denominator is a power-of-2. This is also explained in the paper.
@@ -60,6 +61,7 @@ The appearance of `pi` on the final angles indicates that you should convert div
 0.875
 0.75
 0.5
+0
 ```
 
 Trying out a few possible values for the denominator reveals that all of the new floating point numbers can be written as a fraction where the denominator is `2^12`. The corresponding numerators are `[0, 2048, 3072, 3584, 3840, 1920, 960, 2528, 1264]`, whose binary representation is:
