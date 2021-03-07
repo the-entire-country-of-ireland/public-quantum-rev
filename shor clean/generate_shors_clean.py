@@ -474,8 +474,10 @@ measurement_probabilities /= np.sum(measurement_probabilities)
 plt.plot(measurement_probabilities)
 plt.xlabel("QFT^-1 {exponent}")
 plt.ylabel("probability")
-plt.title("Shor's Algorithm Measurement Probabilities")
+plt.title(f"Shor's Algorithm Measurement Probabilities\nN={N}, a={a}, ne={ne}")
+plt.savefig(f"output_distribution_N={N},a={a},ne={ne}.png")
 plt.show()
+
 
 print("")
 for i in range(10):
